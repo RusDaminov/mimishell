@@ -1,0 +1,5 @@
+.idea/
+.idea/vcs.xml
+*.o
+CMakeLists.txt
+.DS_Store
