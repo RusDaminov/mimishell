@@ -27,6 +27,7 @@ int	bt_exit(char **av);
 int	bt_export(char **av);
 int	bt_pwd(char **av);
 int	bt_unset(char *av);
-
+int	bt_true(char **av);
+int	bt_false(char **av);
 
 #endif

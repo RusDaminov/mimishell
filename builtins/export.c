@@ -11,6 +11,43 @@
 /* ************************************************************************** */
 
 #include "../minishell.h"
+#include "../builtins.h"
+
+static char	oldenvs(char *env)
+{
+	char	*chr;
+	int		c;
+
+	chr = ft_strchr(env, '=');
+	c = 0;
+	while (g_ourenv.env[c])
+	{
+		if (!ft_strncmp(g_ourenv.env[c], env, (chr - env) + 1))
+		{
+			free(g_ourenv.env[c])
+			g_ourenv.env[c] = env;
+			return (0);
+		}
+		c++;
+	}
+	return (1);
+}
+
+static int	printexportnovars(void)
+{
+	int		i;
+	char	*buf;
+
+	i = 0;
+	while (g_ourenv.env[i])
+	{
+		buf = ft_strchr(g_ourenv.env[i], '=');
+		printf("declare -x %.*s=\"%s\"\n,
+		   (int)(buf - g_ourenv.env[i]), g_ourenv.env[i], buf + 1);
+		i++;
+	}
+	return (0);
+}
 
 int	bt_export(char **av)
 {

@@ -12,6 +12,7 @@
 
 
 #include "../minishell.h"
+#include "../builtins.h"
 
 static int	update_pwd(char *str, char *arr[3])
 {
