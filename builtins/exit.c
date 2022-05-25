@@ -1,6 +1,6 @@
 #include "../minishell.h"
 
-static void	ft_check_if_int(char *av, int *ret)
+static void	ft_check_if_int(char **av, int *ret)
 {
 	int	c;
 
