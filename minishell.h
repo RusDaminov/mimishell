@@ -20,6 +20,7 @@
 # include <fcntl.h>
 # include <stdbool.h>
 # include <signal.h>
+# include "builtins.h"
 
 typedef struct s_redirect
 {
