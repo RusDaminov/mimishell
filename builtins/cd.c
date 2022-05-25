@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 
-#include "../minishell.h"
-#include "../builtins.h"
+#include "../includes/minishell.h"
+#include "../includes/builtins.h"
 
 static int	update_pwd(char *str, char *arr[3])
 {

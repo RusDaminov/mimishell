@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
-#include "../builtins.h"
+#include "../includes/minishell.h"
+#include "../includes/builtins.h"
 
 static void	ft_check_if_int(char **av, int *ret)
 {

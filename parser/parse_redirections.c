@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
+#include "../includes/parser.h"
 
 int	parse_redirecions(char **str, char **strbuf, t_cmds **cur)
 {
