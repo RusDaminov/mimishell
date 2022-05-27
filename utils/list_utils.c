@@ -12,7 +12,48 @@
 
 #include "../includes/minishell.h"
 
-<<<<<<< HEAD
+static void free_node2(t_cmds *node)
+{
+	int	cnt;
+
+	if (node->out_dir)
+	{
+		cnt = 0;
+		while (++cnt && node->out_dir[cnt - 1])
+		{
+			if (node->out_dir[cnt - 1]->path)
+				free(node->out_dir[cnt - 1]->path);
+			free(node->out_dir[cnt - 1]);
+		}
+		free(node->out_dir);
+	}
+	free(node);
+}
+
+static void	free_node(t_cmds *node) {
+	int cnt;
+
+	if (node->cmd)
+	{
+		cnt = 0;
+		while (++cnt && node->cmd[cnt - 1])
+			free(node->cmd[cnt - 1])
+			free(node->cmd)
+	}
+	if (node->in_dir)
+	{
+		cnt = 0;
+		while (++cnt && node->in_dir[cnt - 1])
+		{
+			if (node->in_dir[cnt - 1]->path)
+				free(node->in_dir[cnt - 1]->path);
+			free(node->in_dir[cnt - 1]);
+		}
+		free(node->in_dir);
+	}
+	free_node2(node);
+}
+
 int	clear_list(t_cmds *node, int ret)
 {
 	t_cmds	*buf;
@@ -28,8 +69,6 @@ int	clear_list(t_cmds *node, int ret)
 	return (ret);
 }
 
-=======
->>>>>>> d808d64042c779e6d09a1366b4758d35a353981b
 int	append_list(t_cmds **node)
 {
 	t_cmds *buf;
@@ -49,3 +88,29 @@ int	append_list(t_cmds **node)
 	*node = buf;
 	return (0);
 }
+
+t_cmds	*delete_node(t_cmds *node)
+{
+	t_cmds	*ret;
+
+	if (node->next)
+	{
+		node->next->previous = NULL;
+		ret = node->next;
+		if (node->previous)
+		{
+			node->previous->next = node->next;
+			node->next->previous = node->previous;
+		}
+	}
+	else if (node->previous)
+	{
+		node->previous->next = NULL;
+		ret = node->previous;
+	}
+	else
+		ret = NULL;
+	free_node(node);
+	return (ret);
+}
+

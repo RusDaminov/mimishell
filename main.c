@@ -12,7 +12,16 @@
 
 #include "includes/minishell.h"
 
-static int	handlearg(char **av[])
+static int	hanldeinput(char *str, char *av)
+{
+	t_cmds	*cmds;
+	char	*symbol;
+
+	symbol = check_input(str, 0);
+
+}
+
+static int	handlearg(char *av[])
 {
 	t_cmds	*cmds;
 
