@@ -12,6 +12,21 @@
 
 #include "../includes/minishell.h"
 
+int	clear_list(t_cmds *node, int ret)
+{
+	t_cmds	*buf;
+
+	while (node && node->previous != NULL)
+		node = node->previous;
+	while (node)
+	{
+		buf = node->next;
+		free_node(node);
+		node = buf;
+	}
+	return (ret);
+}
+
 int	append_list(t_cmds **node)
 {
 	t_cmds *buf;
