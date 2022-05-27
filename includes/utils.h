@@ -3,6 +3,8 @@
 
 # include "minishell.h"
 
+int	append_list(t_cmds **node);
+
 int	darr_size(char **str);
 
 #endif
