@@ -12,6 +12,7 @@
 
 #include "../includes/minishell.h"
 
+<<<<<<< HEAD
 int	clear_list(t_cmds *node, int ret)
 {
 	t_cmds	*buf;
@@ -27,6 +28,8 @@ int	clear_list(t_cmds *node, int ret)
 	return (ret);
 }
 
+=======
+>>>>>>> d808d64042c779e6d09a1366b4758d35a353981b
 int	append_list(t_cmds **node)
 {
 	t_cmds *buf;
