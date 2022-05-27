@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/utils.h"
+#include "../includes/utils.h"
 
 int	darr_size(char **str)
 {
