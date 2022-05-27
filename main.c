@@ -12,6 +12,22 @@
 
 #include "includes/minishell.h"
 
+static int	handlearg(char **av[])
+{
+	t_cmds	*cmds;
+
+	cmds = NULL;
+	if (append_list(&cmds))
+		return (1);
+	cmds = parse(av[1], cmds, av[0]);
+	if (!cmds)
+		return (1);
+	if (find_last(cmds)->cmd == NULL)
+		cmd = delete_node(find_last(cmds));
+	cmds = find_listhead(cmds);
+	return (clear_list(cmds, ((int)execute(cmds))));
+}
+
 int	get_full_path(char **av, char arr[4096])
 {
 	if ((*av)[0] != '.')
@@ -24,7 +40,7 @@ int	get_full_path(char **av, char arr[4096])
 	return (0);
 }
 
-int	main(int ac, char **av, char **env)
+int	main(int ac, char *av[], char **env)
 {
 	char	*str;
 	char	arr[4096];

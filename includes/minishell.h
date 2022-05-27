@@ -21,6 +21,10 @@
 # include <stdbool.h>
 # include <signal.h>
 # include "builtins.h"
+# include "utils.h"
+# include "parser.h"
+# include <readline/readline.h>
+
 
 typedef struct s_redirect
 {
