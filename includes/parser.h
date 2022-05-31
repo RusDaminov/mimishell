@@ -17,7 +17,7 @@
 
 t_cmds	*parse(char *str, t_cmds *cur, char *av);
 
-char	*chack_input(char *str, int scope);
+char	*input_check(char *str, int scope);
 
 int		parse_redirecions(char **str, char **strbuf, t_cmds **cur);
 

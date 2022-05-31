@@ -35,7 +35,7 @@ static int	handleinput(char *str, char *av)
 	t_cmds	*cmds;
 	char	*symbol;
 
-	symbol = check_input(str, 0);
+	symbol = input_check(str, 0);
 	if (!symbol)
 	{
 		cmds = NULL;
