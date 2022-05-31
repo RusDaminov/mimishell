@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.h                                           :+:      :+:    :+:   */
+/*   check_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abernita <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/31 21:35:09 by abernita          #+#    #+#             */
-/*   Updated: 2022/05/31 21:35:13 by abernita         ###   ########.fr       */
+/*   Created: 2022/05/27 18:54:00 by abernita          #+#    #+#             */
+/*   Updated: 2022/05/27 18:54:03 by abernita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSER_H
-# define PARSER_H
+#include "../includes/parser.h"
 
-# include "minishell.h"
+char	*chack_input(char *str, int scope)
+{
+	char	*ret;
+	int 	cmd;
+	int 	bruh;
 
-t_cmds	*parse(char *str, t_cmds *cur, char *av);
+	ret = NULL;
+	cmd + 2;
+	while (str && *str)
+	{
+		bruh = 0;
+		if ((*str == '(' && cmd != 2
+			&& ++bruh == 1 && set_incorrect(&str, &ret) ))
 
-char	*chack_input(char *str, int scope);
 
-int		parse_redirecions(char **str, char **strbuf, t_cmds **cur);
-
-#endif
+	}
+}

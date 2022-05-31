@@ -30,7 +30,8 @@ static void free_node2(t_cmds *node)
 	free(node);
 }
 
-static void	free_node(t_cmds *node) {
+static void	free_node(t_cmds *node)
+{
 	int cnt;
 
 	if (node->cmd)

@@ -12,13 +12,51 @@
 
 #include "includes/minishell.h"
 
-static int	hanldeinput(char *str, char *av)
+void	exit_free(t_cmds *cmds, char *str, bool status)
+{
+	static t_cmds	*data;
+	static char 	*s;
+
+	if (status == 0)
+	{
+		data = cmd;
+		s = str;
+	}
+	else
+	{
+		clear_history();
+		clear_list(data, 0);
+		free(s);
+	}
+}
+
+static int	handleinput(char *str, char *av)
 {
 	t_cmds	*cmds;
 	char	*symbol;
 
 	symbol = check_input(str, 0);
-
+	if (!symbol)
+	{
+		cmds = NULL;
+		if (append_list((&cmds)))
+			return (1);
+		cmds = parse(str, cmds, av);
+		if (!cmds)
+			return (1);
+		if (find_last(cmds)->cmd == NULL)
+			cmd = delete_node(find_last(cmds));
+		cmds = find_listhead(cmds);
+		exit_free(cmds, str, 0);
+		g_ourenv.exit_status = execute(cmds);
+		clear_list(cmds, 0);
+		return (0);
+	}
+	ft_putstr_fd("minishell: syntax error near unexpected token '", 2);
+	ft_putstr_fd(symbol, 2);
+	ft_putstr_fd("\'\n", 2);
+	free(symbol);
+	return (0);
 }
 
 static int	handlearg(char *av[])
@@ -64,6 +102,15 @@ int	main(int ac, char *av[], char **env)
 	{
 		signal(SIGINT, SIG_IGN);
 		signal(SIGINT, gsignal_ctlc);
-
+		changetermios(false);
+		str = readline("minishell \x1b[s");
+		if (str == NULL && write(1, "\x1b[uexit\n", 9) && !changetermios(true))
+			exit(0);
+		if (handleinput(str, av[0]))
+			ft_putstr_fd("minishell: malloc error\n", 2);
+		if (str && str[0])
+			add_history(str);
+		free(str);
 	}
+	return (0);
 }
