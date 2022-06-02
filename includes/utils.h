@@ -12,4 +12,6 @@ t_cmds	*delete_node(t_cmds *node);
 
 int		darr_size(char **str);
 
+int		append_char(char **str, char c);
+
 #endif

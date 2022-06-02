@@ -1,44 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   str_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abernita <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/25 18:11:01 by abernita          #+#    #+#             */
-/*   Updated: 2022/05/25 18:11:04 by abernita         ###   ########.fr       */
+/*   Created: 2022/06/02 23:07:19 by abernita          #+#    #+#             */
+/*   Updated: 2022/06/02 23:07:20 by abernita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/utils.h"
 
-int	darr_size(char **str)
+int	append_char(char **str, char c)
 {
-	int	len;
+	char	*buf;
+	int 	i;
 
-	len = 0;
-	if (!str)
-		return (0);
-	while (str[len])
-		len++;
-	return (len);
-}
-
-int	read_env(char **env)
-{
-	int	i;
-
-	g_ourenv.env = ft_calloc(get_env_size(env) + 2, sizeof(char *));
-	if (!g_ourenv.env)
+	buf = (char *)malloc(ft_strlen(*str) + 2);
+	if (!buf)
 		return (1);
 	i = 0;
-	while (env && env[i])
+	while (*str && (*str)[i])
 	{
-		g_ourenv.env[i] = ft_strdup(env[i]);
-		if (!g_ourenv.env[i])
-			return (1 + free_env());
+		buf[i] = (*str)[i];
 		i++;
 	}
-	g_ourenv.exit_status = 0;
+	buf[i] = c;
+	buf[i + 1] = '\0';
+	if (*str)
+		free(*str);
+	*str = buf;
 	return (0);
 }
+
+

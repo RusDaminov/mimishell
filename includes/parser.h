@@ -15,6 +15,11 @@
 
 # include "minishell.h"
 
+# define REDIRECTIONS "<>"
+# define ENDSTRING "\"\'$|"
+# define ENDCOMMAND "&|("
+# define HEREDOCEND " |&"
+
 t_cmds	*parse(char *str, t_cmds *cur, char *av);
 
 char	*input_check(char *str, int scope);

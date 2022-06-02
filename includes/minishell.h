@@ -26,6 +26,7 @@
 # include <readline/readline.h>
 
 
+
 typedef struct s_redirect
 {
 	bool		type;
@@ -47,5 +48,12 @@ typedef struct s_cmds
 	char 			*str;
 }	t_cmds;
 
+typedef struct s_variables
+{
+	char			*env;
+	unsigned char	exit_status;
+}	t_variables;
+
+t_variables g_ourenv;
 
 #endif
