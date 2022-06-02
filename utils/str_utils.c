@@ -33,5 +33,3 @@ int	append_char(char **str, char c)
 	*str = buf;
 	return (0);
 }
-
-
