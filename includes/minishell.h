@@ -24,7 +24,7 @@
 # include "utils.h"
 # include "parser.h"
 # include <readline/readline.h>
-
+# include <readline/history.h>
 
 
 typedef struct s_redirect
@@ -50,7 +50,7 @@ typedef struct s_cmds
 
 typedef struct s_variables
 {
-	char			*env;
+	char			**env;
 	unsigned char	exit_status;
 }	t_variables;
 

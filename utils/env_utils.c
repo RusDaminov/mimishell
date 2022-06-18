@@ -36,3 +36,36 @@ static int	get_env_size(char **env)
 		i++;
 	return (1);
 }
+
+int	free_env(void)
+{
+	int	i;
+
+	i = 0;
+	while (g_ourenv.env && g_ourenv.env[i])
+		free(g_ourenv.env[i]);
+	if (g_ourenv.env)
+		free(g_ourenv.env);
+	g_ourenv.env = NULL;
+	return (0);
+}
+
+int	read_env(char **env)
+{
+	int	i;
+
+	g_ourenv.env = ft_calloc(get_env_size(env) + 2, sizeof(chae *));
+	if (!g_ourenv.env)
+		return (1);
+	i = 0;
+	while (env && env[i])
+	{
+		g_ourenv.env[i] = ft_strdup(env[i]);
+		if (!g_ourenv.env[i])
+			return (1 + free_env());
+		i++;
+	}
+	g_ourenv.exit_status = 0;
+	return (0);
+}
+

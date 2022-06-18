@@ -114,4 +114,3 @@ t_cmds	*delete_node(t_cmds *node)
 	free_node(node);
 	return (ret);
 }
-
