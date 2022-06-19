@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   builtins.h                                         :+:      :+:    :+:   */
+/*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abernita <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/25 17:42:15 by abernita          #+#    #+#             */
-/*   Updated: 2022/05/25 17:42:17 by abernita         ###   ########.fr       */
+/*   Created: 2022/06/19 15:12:19 by abernita          #+#    #+#             */
+/*   Updated: 2022/06/19 15:12:21 by abernita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUILTINS_H
-# define BUILTINS_H
+#include "../includes/minishell.h"
 
-# include "minishell.h"
-
-typedef struct	s_builtins
+int bt_env(char **av)
 {
-	char	*name;
-	int		(*func)(char *av);
-}	t_builtins;
+    int i;
 
-int	bt_cd(char **av);
-int	bt_echo(char **av);
-int bt_env(char **av);
-int	bt_exit(char **av);
-int	bt_export(char **av);
-int	bt_pwd(char **av);
-int	bt_unset(char *av);
-int	bt_true(char **av);
-int	bt_false(char **av);
-
-#endif
+    i = 0;
+    if (!g_ourenv.env)
+    {
+        ft_putstr_fd("minishell: env: env is empty\n", 2);
+        return (1);
+    }
+    while (g_ourenv.env[i])
+    {
+        printf("%s\n", g_ourenv.env[i]);
+        i++;
+    }
+    return (0);
+    (void)av;
+}
