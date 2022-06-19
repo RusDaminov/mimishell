@@ -49,6 +49,28 @@ static int	printexportnovars(void)
 	return (0);
 }
 
+static int	doexport(char **av)
+{
+	int		i;
+	char	*buf;
+
+	i = 0;
+	while (av[i])
+	{
+		if (ft_strchr(av[i], '='))
+		{
+			buf = ft_strdup(av[i]);
+			if (!buf)
+				return (1);
+			if (oldenvs(buf))
+				if(append_dstring(&g_ourenv.env, buf))
+					return (1)
+		}
+		i++;
+	}
+	return (0);
+}
+
 int	bt_export(char **av)
 {
 	if (darr_size(av) < 1)

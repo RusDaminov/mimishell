@@ -12,33 +12,11 @@
 
 #include "../includes/utils.h"
 
-int	darr_size(char **str)
+int		ft_isspace(int c)
 {
-	int	len;
-
-	len = 0;
-	if (!str)
-		return (0);
-	while (str[len])
-		len++;
-	return (len);
-}
-
-int	read_env(char **env)
-{
-	int	i;
-
-	g_ourenv.env = ft_calloc(get_env_size(env) + 2, sizeof(char *));
-	if (!g_ourenv.env)
+	c = (unsigned char)c;
+	if (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r'
+		|| c == ' ')
 		return (1);
-	i = 0;
-	while (env && env[i])
-	{
-		g_ourenv.env[i] = ft_strdup(env[i]);
-		if (!g_ourenv.env[i])
-			return (1 + free_env());
-		i++;
-	}
-	g_ourenv.exit_status = 0;
 	return (0);
 }

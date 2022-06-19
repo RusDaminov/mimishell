@@ -12,6 +12,27 @@
 
 #include "../includes/parser.h"
 
+int	bracket_check2(char **str, char **res, int scope)
+{
+
+}
+int	bracket_check(char **str, char **res, int scope)
+{
+	int	scope2;
+	int chars;
+
+	(*str)++;
+	*res = input_check(*str, scope + 1);
+	if (*res && !ft_strncmp(*res, ")", 2))
+	{
+		free(*res);
+		*res = NULL;
+	}
+	if (bracket_check2(str, res, &scope2, &chars))
+		return (1);
+
+}
+
 char	*input_check2(char **str, char **res, int *cmd, int *bruh)
 {
 	if (**str && ft_strchr(ENDCOMMAND, **str) && ++(*bruh) == 1)
@@ -21,7 +42,7 @@ char	*input_check2(char **str, char **res, int *cmd, int *bruh)
 			append_char(res, **str);
 			if (ft_strchr(ENDCOMMAND, *(*str + 1)) && **str != '(')
 				append_char((res, *(*str + 1)));
-			return (res);
+			return (*res);
 		}
 		if (ft_strchr(ENDCOMMAND, *(*str + 1)) && **str != '(')
 			(*str)++;
@@ -29,10 +50,10 @@ char	*input_check2(char **str, char **res, int *cmd, int *bruh)
 	}
 	else if (**str && ft_strchr(ENDSTRING, **str)
 		&& **str != '$' && ++(*bruh) == 1 && check_quote(str, res))
-		return (res);
+		return (*res);
 	else if (**str && ft_strchr(REDIRECTIONS, **str)
-		&& ++(bruh) == 1 && check_redirections(str, res))
-		return (res);
+		&& ++(*bruh) == 1 && check_redirections(str, res))
+		return (*res);
 	else if (!ft_isspace(**str))
 		*cmd = 1;
 	return (NULL);
