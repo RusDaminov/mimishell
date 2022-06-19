@@ -42,7 +42,7 @@ static int	printexportnovars(void)
 	while (g_ourenv.env[i])
 	{
 		buf = ft_strchr(g_ourenv.env[i], '=');
-		printf("declare -x %.*s=\"%s\"\n,
+		printf("declare -x %.*s=\"%s\"\n",
 		   (int)(buf - g_ourenv.env[i]), g_ourenv.env[i], buf + 1);
 		i++;
 	}

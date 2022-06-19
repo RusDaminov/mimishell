@@ -32,6 +32,6 @@ int		append_string(char **org, char *str);
 char	*get_env_value(char *str);
 int		free_env(void);
 int		read_env(char **env);
-int     rm_env(char *str);
+//int     rm_env(char *str);
 
 #endif

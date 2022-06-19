@@ -42,7 +42,6 @@ t_cmds	*parse(char *str, t_cmds *cur, char *av)
 	strbuf = NULL;
 	while (str && *(str))
 	{
-
 		fc = 0;
 		if (ft_strchr(ENDSTRING, *str) && ++fc && parse_quotes(&str, &strbuf))
 			return ((void *)(size_t)clear_list(cur, 0));

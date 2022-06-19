@@ -25,7 +25,7 @@ static char	set_newenv(char *env)
 		if (!(!ft_strncmp(g_ourenv.env[i], env,
 						  ft_strchr(g_ourenv.env[i], '=') - g_ourenv.env[i])))
 		{
-			if (dstring_append(&new_env, g_ourenv.env[i]))
+			if (append_dstring(&new_env, g_ourenv.env[i]))
 				return (1);
 		}
 		else
@@ -37,7 +37,7 @@ static char	set_newenv(char *env)
 	return (0);
 }
 
-int	bt_unset(char *av)
+int	bt_unset(char **av)
 {
 	int	i;
 
