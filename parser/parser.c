@@ -16,7 +16,7 @@ static int	parse_space(char **strbuf, t_cmds *cur)
 {
 	if (!(*strbuf))
 		return (0);
-	if (dstring_append(&cur->cmd, *strbuf))
+	if (append_dstring(&cur->cmd, *strbuf))
 		return (1);
 	*strbuf = NULL;
 	return (0);
@@ -29,7 +29,7 @@ static int	parse_2(char *str, t_cmds *cur, int fc, char **strbuf)
 		return (1);
 	else if (**str == '*' && ++fc && parse_asterix(str, strbuf, &cur))
 		return (1);
-	else if (!fc && char_append(strbuf, **str))
+	else if (!fc && append_char(strbuf, **str))
 		return (1);
 	return (0);
 }
@@ -50,12 +50,12 @@ t_cmds	*parse(char *str, t_cmds *cur, char *av)
 		else if (ft_strchr(ENDCOMMAND, *str) && ++fc
 			&& parse_endcommands(&str, &strbuf, &cur, av))
 			return ((void *)(size_t)clear_list(cur, 0));
-		else if (parse_2(&str, cur, fc, &strbuf))
+		else if (parse_2(str, cur, fc, &strbuf))
 			return ((void *)(size_t)clear_list(cur, 0));
 		str++;
 	}
 	if (strbuf)
-		if (dstring_append(&cur->cmd, strbuf))
+		if (append_dstring(&cur->cmd, strbuf))
 			return ((void *)(size_t)clear_list(cur, 0));
 	return (find_listhead(cur));
 }
