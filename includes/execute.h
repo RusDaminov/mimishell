@@ -36,5 +36,5 @@ typedef struct	s_pid
 }	t_pid;
 
 unsigned char	execute(t_cmds *data);
-
+int				check_builtin(t_cmds *cmd, t_execute *exec);
 #endif

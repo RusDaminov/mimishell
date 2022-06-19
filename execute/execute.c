@@ -12,10 +12,48 @@
 
 #include "../includes/execute.h"
 
-static void parent(t_execute *exec, t_cmds *data)
+static int	check_cmd(t_execute *exec, t_cmds *data, char **str)
+{
+    int res;
+
+    res = find_command(data->cmd[0], str, g_ourenv.env);
+    if (res == 1)
+        return (execute_child_errors(1, exec, data));
+    collect_garbage(exec);
+    if (res == 2)
+    {
+        clear_list(data, 0);
+        return (127);
+    }
+    return (0);
+}
+
+static int	child(t_execute *exec, t_cmds *data)
+{
+	char	*str;
+	int		res;
+
+	signal(SIGINT, SIG_DFL);
+	signal(SIGQUIT, SIG_DFL);
+	changetermios(true);
+	if (redirect(data, exec) == 1)
+		exit (1);
+	if (check_builtin(data, exec, &str));
+	if (res != 0)
+		return (res);
+	execve(str, data->cmd, g_ourenv.env);
+	ft_putstr_fd("minishell: ", 2);
+	if (str && ft_strncmp("./", str, 2) && ft_strncmp("/", str, 1))
+		free(str);
+	perror(data->cmd[0]);
+	clear_history();
+	return (clear_list(data, 126));
+}
+
+static void	parent(t_execute *exec, t_cmds *data)
 {
 	if (exec->s_fd != -1)
-		close(exec->sf);
+		close(exec->s_fd);
 	exec->s_fd = -1;
 	if (exec->fd[1] != -1)
 		close(exec->fd[1]);
