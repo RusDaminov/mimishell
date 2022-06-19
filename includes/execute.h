@@ -37,4 +37,6 @@ typedef struct	s_pid
 
 unsigned char	execute(t_cmds *data);
 int				check_builtin(t_cmds *cmd, t_execute *exec);
+void			collect_garbage(t_execute *exec);
+
 #endif

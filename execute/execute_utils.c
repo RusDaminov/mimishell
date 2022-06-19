@@ -30,3 +30,23 @@ int	check_builtin(t_cmds *cmd, t_execute *exec)
 	}
 	return (1);
 }
+
+void	collect_garbage(t_execute *exec)
+{
+	if (exec->s_fd != -1)
+	{
+		close(exec->s_fd);
+		exec->s_fd = -1;
+	}
+	if (exec->s_fd[0] != -1)
+	{
+		close(exec->s_fd[0]);
+		exec->s_fd[0] = -1;
+	}
+	if (exec->s_fd[1] != -1)
+	{
+		close(exec->s_fd[1]);
+		exec->s_fd[1] = -1;
+	}
+	ft_lstclear(&(exec->lst), free);
+}
