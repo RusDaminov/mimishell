@@ -26,6 +26,9 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 
+# define OPERATORS_NONE 0
+# define OPERATORS_OR 1
+# define OPERATORS_AND 2
 
 typedef struct s_redirect
 {

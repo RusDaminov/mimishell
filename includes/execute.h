@@ -39,4 +39,11 @@ unsigned char	execute(t_cmds *data);
 int				check_builtin(t_cmds *cmd, t_execute *exec);
 void			collect_garbage(t_execute *exec);
 
+void			check_operators(t_cmds **data, t_execute *exec);
+int				has_heredoc(t_cmds *data);
+void			my_wait(void *pid, int reset);
+void			wait_for_real(t_list *lst, t_execute *exec);
+
+int 			find_command(char *arg, char **str, char __attribute__((unused)) **env);
+
 #endif
