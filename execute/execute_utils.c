@@ -62,3 +62,20 @@ void	collect_garbage(t_execute *exec)
 	}
 	ft_lstclear(&(exec->lst), free);
 }
+
+int	execute_errors(int res, t_execute *exec)
+{
+	perror("minishell");
+	collect_garbage(exec);
+	exec->exit = res;
+	return (res);
+}
+
+int	execute_child_errors(int res, t_execute *exec, t_cmds *data)
+{
+	perror("minishell");
+	collect_garbage(exec);
+	clear_list(data, 0);
+	data = 0;
+	return (res);
+}

@@ -38,6 +38,8 @@ typedef struct	s_pid
 unsigned char	execute(t_cmds *data);
 int				check_builtin(t_cmds *cmd, t_execute *exec);
 void			collect_garbage(t_execute *exec);
+int				execute_errors(int res, t_execute *exec);
+int				execute_child_errors(int res, t_execute *exec, t_cmds *data);
 
 void			check_operators(t_cmds **data, t_execute *exec);
 int				has_heredoc(t_cmds *data);
@@ -45,5 +47,8 @@ void			my_wait(void *pid, int reset);
 void			wait_for_real(t_list *lst, t_execute *exec);
 
 int 			find_command(char *arg, char **str, char __attribute__((unused)) **env);
+
+int				is_builtin(char *cmd);
+int				exec_in_main(t_execute *exec, t_cmds *cmd);
 
 #endif
