@@ -38,7 +38,12 @@ static int	child(t_execute *exec, t_cmds *data)
 	changetermios(true);
 	if (redirect(data, exec) == 1)
 		exit (1);
-	if (check_builtin(data, exec, &str));
+	if (check_builtin(data, exec) == 0)
+	{
+		collect_garbage(&exec);
+		return (exec.exit);
+	}
+	res = check_cmd(exec, data, &str);
 	if (res != 0)
 		return (res);
 	execve(str, data->cmd, g_ourenv.env);
