@@ -33,4 +33,8 @@ int		redirect_size(t_redirect **red);
 int		add_redirect(t_redirect ***cur);
 int		parse_redirecions(char **str, char **strbuf, t_cmds **cur);
 
+int 	parse_redirections_2(char **str, t_cmds **cur);
+
+int		parse_quotes(char **str, chsr **strbuf);
+
 #endif

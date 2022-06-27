@@ -47,7 +47,7 @@ static int	parse_leftfile(char **str, t_cmds **cur)
 		(*str)++;
 	while (!ft_strchr(HEREDOCEND, **str) && **str)
 	{
-		if (*str == '\'' || *str == '\"')
+		if (**str == '\'' || **str == '\"')
 		{
 			(*str)++;
 			continue;
