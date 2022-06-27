@@ -14,8 +14,26 @@
 
 int	bracket_check2(char **str, char **res, int scope)
 {
-
+	*scope = 1;
+	*chars = 0;
+	while (*scope != 0 && **str && !*res)
+	{
+		if (**str == ')')
+			(*scope)--;
+		else if (**str == '(')
+			(*scope)++;
+		(*str)++;
+		(*chars)++;
+	}
+	if ((*chars) == 1 && !*res)
+		if (append_char(res, ')'))
+			return (1);
+	if ((*scope) != 0 && !*res)
+		if (append_char(res, '('))
+			return (1);
+	return (0);
 }
+
 int	bracket_check(char **str, char **res, int scope)
 {
 	int	scope2;
@@ -30,7 +48,10 @@ int	bracket_check(char **str, char **res, int scope)
 	}
 	if (bracket_check2(str, res, &scope2, &chars))
 		return (1);
-
+	if (*res)
+		return (1);
+	(*str)--;
+	return (0);
 }
 
 char	*input_check2(char **str, char **res, int *cmd, int *bruh)

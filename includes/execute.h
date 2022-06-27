@@ -51,4 +51,6 @@ int 			find_command(char *arg, char **str, char __attribute__((unused)) **env);
 int				is_builtin(char *cmd);
 int				exec_in_main(t_execute *exec, t_cmds *cmd);
 
+int				redirect(t_cmds *data, t_execute *exec);
+
 #endif

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   manage_main.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abernita <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/27 22:36:22 by abernita          #+#    #+#             */
+/*   Updated: 2022/06/27 22:36:24 by abernita         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/execute.h"
 
 static const	t_builtins g_built_cmd[] = {
@@ -27,6 +39,7 @@ int	is_builtin(char *cmd)
 	}
 	return (0);
 }
+
 static int safe_std(t_execute *exec, t_cmds *cmd)
 {
 	if (cmd->in_dir)

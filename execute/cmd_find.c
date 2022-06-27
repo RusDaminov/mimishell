@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cmd_find.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abernita <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/27 21:52:27 by abernita          #+#    #+#             */
+/*   Updated: 2022/06/27 21:52:30 by abernita         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/execute.h"
 
 static int free_path(char **path, int returnvalue)
@@ -14,7 +26,7 @@ static int free_path(char **path, int returnvalue)
 	return (returnvalue);
 }
 
-static int	not_found(char *arg, char **path, char **str)
+static int	not_found_404(char *arg, char **path, char **str)
 {
 	if (path)
 		free_path(path, 0);

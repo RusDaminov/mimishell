@@ -29,7 +29,6 @@ int		parse_redirecions(char **str, char **strbuf, t_cmds **cur);
 
 int		check_quote(char **str, char **rem);
 int		check_redirections(char **str, char **rem);
-int		check_redirections(char **str, char **ret);
 int		set_incorrect(char **str, char **rem);
 
 #endif
