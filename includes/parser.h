@@ -37,4 +37,8 @@ int 	parse_redirections_2(char **str, t_cmds **cur);
 
 int		parse_quotes(char **str, chsr **strbuf);
 
+int		parse_endcmds(char **str, char **strbuf);
+
+int		parse_or(char **str, char **strbuf, t_cmds **cur);
+
 #endif
