@@ -50,6 +50,17 @@ static int	safe_std(t_execute *exec, t_cmds *cmd)
 			perror("minishell");
 		}
 	}
+	if (cmd->out_dir)
+	{
+		exec->s_out = dup(1);
+		if (exec->s_out == -1)
+		{
+			close(exec->s_in);
+			perror("minishell");
+			return (1);
+		}
+	}
+	return (0);
 }
 
 static int	reset_to_std(t_execute *exec, t_cmds *cmd)
@@ -80,7 +91,7 @@ int	exec_in_main(t_execute *exec, t_cmds *cmd)
 {
 	if (safe_std(exec, cmd) == 1)
 		return (1);
-	signal(SIGNAL, heredoc_ctlc);
+	signal(SIGINT, heredoc_ctlc);
 	if (redirect(cmd, exec) == 1)
 	{
 		reset_to_std(exec, cmd);

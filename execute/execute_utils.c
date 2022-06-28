@@ -30,7 +30,7 @@ int	check_builtin(t_cmds *cmd, t_execute *exec)
 	int	i;
 
 	i = 0;
-	while (g_built_cmd[1].name)
+	while (g_built_cmd[i].name)
 	{
 		if (!ft_strncmp(cmd->cmd[0], g_built_cmd[i].name,
 				ft_strlen(g_built_cmd[i].name) + 1))

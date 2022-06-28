@@ -38,9 +38,9 @@ SOURCES =	main.c																\
 			builtins/pwd.c														\
 			builtins/true_false.c												\
 			execute/redirect.c													\
-			execute/manage_main.c												\
-			execute/execute_utils.c												\
 			execute/execute_utils2.c											\
+			execute/execute_utils.c												\
+			execute/manage_main.c												\
 			execute/cmd_find.c
 
 #COLORS
@@ -60,19 +60,19 @@ OBJECTS = $(SOURCES:.c=.o)
 
 
 all: $(NAME)
-	@echo $(R)
-	@echo " ███▄ ▄███▓ ██▓ ███▄    █  ██▓  ██████  ██░ ██ ▓█████  ██▓     ██▓    " | fmt -c $$(tput cols)
-	@echo "▓██▒▀█▀ ██▒▓██▒ ██ ▀█   █ ▓██▒▒██    ▒ ▓██░ ██▒▓█   ▀ ▓██▒    ▓██▒    " | fmt -c $$(tput cols)
-	@echo "▓██    ▓██░▒██▒▓██  ▀█ ██▒▒██▒░ ▓██▄   ▒██▀▀██░▒███   ▒██░    ▒██░    " | fmt -c $$(tput cols)
-	@echo "▒██    ▒██ ░██░▓██▒  ▐▌██▒░██░  ▒   ██▒░▓█ ░██ ▒▓█  ▄ ▒██░    ▒██░    " | fmt -c $$(tput cols)
-	@echo "▒██▒   ░██▒░██░▒██░   ▓██░░██░▒██████▒▒░▓█▒░██▓░▒████▒░██████▒░██████▒" | fmt -c $$(tput cols)
-	@echo "░ ▒░   ░  ░░▓  ░ ▒░   ▒ ▒ ░▓  ▒ ▒▓▒ ▒ ░ ▒ ░░▒░▒░░ ▒░ ░░ ▒░▓  ░░ ▒░▓  ░" | fmt -c $$(tput cols)
-	@echo "░  ░      ░ ▒ ░░ ░░   ░ ▒░ ▒ ░░ ░▒  ░ ░ ▒ ░▒░ ░ ░ ░  ░░ ░ ▒  ░░ ░ ▒  ░" | fmt -c $$(tput cols)
-	@echo "░      ░    ▒ ░   ░   ░ ░  ▒ ░░  ░  ░   ░  ░░ ░   ░     ░ ░     ░ ░   " | fmt -c $$(tput cols)
-	@echo "       ░    ░           ░  ░        ░   ░  ░  ░   ░  ░    ░  ░    ░  ░" | fmt -c $$(tput cols)
-	@echo $(BLACK)
-	@echo "                                               by @nschumac & @jsiller" | fmt -c $$(tput cols)
-	@echo $(X);
+	echo $(R)
+	echo " ███▄ ▄███▓ ██▓ ███▄    █  ██▓  ██████  ██░ ██ ▓█████  ██▓     ██▓    " | fmt -c $$(tput cols)
+	echo "▓██▒▀█▀ ██▒▓██▒ ██ ▀█   █ ▓██▒▒██    ▒ ▓██░ ██▒▓█   ▀ ▓██▒    ▓██▒    " | fmt -c $$(tput cols)
+	echo "▓██    ▓██░▒██▒▓██  ▀█ ██▒▒██▒░ ▓██▄   ▒██▀▀██░▒███   ▒██░    ▒██░    " | fmt -c $$(tput cols)
+	echo "▒██    ▒██ ░██░▓██▒  ▐▌██▒░██░  ▒   ██▒░▓█ ░██ ▒▓█  ▄ ▒██░    ▒██░    " | fmt -c $$(tput cols)
+	echo "▒██▒   ░██▒░██░▒██░   ▓██░░██░▒██████▒▒░▓█▒░██▓░▒████▒░██████▒░██████▒" | fmt -c $$(tput cols)
+	echo "░ ▒░   ░  ░░▓  ░ ▒░   ▒ ▒ ░▓  ▒ ▒▓▒ ▒ ░ ▒ ░░▒░▒░░ ▒░ ░░ ▒░▓  ░░ ▒░▓  ░" | fmt -c $$(tput cols)
+	echo "░  ░      ░ ▒ ░░ ░░   ░ ▒░ ▒ ░░ ░▒  ░ ░ ▒ ░▒░ ░ ░ ░  ░░ ░ ▒  ░░ ░ ▒  ░" | fmt -c $$(tput cols)
+	echo "░      ░    ▒ ░   ░   ░ ░  ▒ ░░  ░  ░   ░  ░░ ░   ░     ░ ░     ░ ░   " | fmt -c $$(tput cols)
+	echo "       ░    ░           ░  ░        ░   ░  ░  ░   ░  ░    ░  ░    ░  ░" | fmt -c $$(tput cols)
+	echo $(BLACK)
+	echo "                                               by @nschumac & @jsiller" | fmt -c $$(tput cols)
+	echo $(X);
 
 $(NAME): $(LIBFT_NAME) $(OBJECTS)
 	@$(CC) $(OBJECTS) $(CFLAGS) $(LFLAGS) -o $@

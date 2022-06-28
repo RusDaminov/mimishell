@@ -55,20 +55,20 @@ void	my_wait(void *pid, int reset)
 	{
 		if (safe == 0)
 		{
-			if (WTERMSIG((t_pid *)pid) == 3)
+			if (WTERMSIG(((t_pid *)pid)->exit) == 3)
 				ft_putendl_fd("Quit: 3", 2);
-			if (WTERMSIG((t_pid *)pid) == 2)
+			if (WTERMSIG(((t_pid *)pid)->exit) == 2)
 				ft_putstr_fd("\n", 2);
-			if (WTERMSIG((t_pid *)pid) == 1)
+			if (WTERMSIG(((t_pid *)pid)->exit) == 1)
 				((t_pid *)pid)->exit = WTERMSIG(((t_pid *)pid)->exit);
-			if (WTERMSIG((t_pid *)pid) == 1)
+			if (WTERMSIG(((t_pid *)pid)->exit) == 1)
 				return ;
 			safe = 1;
 		}
-		((t_pid *)pid)->exit = WTERMSIG(((t_pid *)pid)->exit);
+		((t_pid *)pid)->exit = WTERMSIG(((t_pid *)pid)->exit) + 128;
 	}
 	if (WIFEXITED(((t_pid *)pid)->exit))
-		((t_pid *)pid)->exit = WEXITED(((t_pid *)pid)->exit);
+		((t_pid *)pid)->exit = WEXITSTATUS(((t_pid *)pid)->exit);
 }
 
 void	wait_for_real(t_list *lst, t_execute *exec)
