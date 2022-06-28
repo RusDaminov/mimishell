@@ -20,7 +20,7 @@ static int	read_from_stdin(t_cmds *data, int fd[2], int i)
 	signal(SIGINT, heredoc_ctlc);
 	str = readline("> ");
 	while (str && ft_strncmp(data->in_dir[i]->path, str,
-		ft_strlen(data->in_dir[i]->path) + 1))
+			ft_strlen(data->in_dir[i]->path) + 1))
 	{
 		write(fd[1], str, ft_strlen(str));
 		write(fd[1], "\n", 1);
@@ -29,7 +29,7 @@ static int	read_from_stdin(t_cmds *data, int fd[2], int i)
 	}
 	if (!str)
 		return (1);
-	if (!data->in_dir[i + 1] && dup2(fd[0], 0 ) == -1)
+	if (!data->in_dir[i + 1] && dup2(fd[0], 0) == -1)
 	{
 		perror("minishell");
 		close(fd[0]);
@@ -41,10 +41,10 @@ static int	read_from_stdin(t_cmds *data, int fd[2], int i)
 	return (0);
 }
 
-static int here_doc(t_cmds *data)
+static int	here_doc(t_cmds *data)
 {
 	int	i;
-	int fd[2];
+	int	fd[2];
 
 	i = 0;
 	while (data->in_dir && data->in_dir[i])
@@ -69,7 +69,7 @@ static int here_doc(t_cmds *data)
 static int	out_directions(t_cmds *data)
 {
 	int	i;
-	int fd;
+	int	fd;
 
 	i = 0;
 	while (data->out_dir && data->out_dir[i])
@@ -78,7 +78,7 @@ static int	out_directions(t_cmds *data)
 			fd = open(data->out_dir[i]->path, O_RDWR | O_TRUNC, 0644);
 		else
 			fd = open(data->out_dir[i]->path, O_RDWR
-				| O_CREAT | O_APPEND, 0644);
+					| O_CREAT | O_APPEND, 0644);
 		if (fd == -1)
 			perror(data->out_dir[i]->path);
 		if (fd == -1)
@@ -98,7 +98,7 @@ static int	out_directions(t_cmds *data)
 static int	in_directions(t_cmds *data)
 {
 	int	i;
-	int fd;
+	int	fd;
 
 	i = 0;
 	while (data->in_dir && data->in_dir[i])

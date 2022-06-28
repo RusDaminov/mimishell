@@ -68,4 +68,3 @@ int	read_env(char **env)
 	g_ourenv.exit_status = 0;
 	return (0);
 }
-

@@ -23,7 +23,7 @@ static char	set_newenv(char *env)
 	while (g_ourenv.env && g_ourenv.env[i])
 	{
 		if (!(!ft_strncmp(g_ourenv.env[i], env,
-						  ft_strchr(g_ourenv.env[i], '=') - g_ourenv.env[i])))
+					ft_strchr(g_ourenv.env[i], '=') - g_ourenv.env[i])))
 		{
 			if (append_dstring(&new_env, g_ourenv.env[i]))
 				return (1);

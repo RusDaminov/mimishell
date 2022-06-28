@@ -12,7 +12,7 @@
 
 #include "../includes/minishell.h"
 
-static void free_node2(t_cmds *node)
+static void	free_node2(t_cmds *node)
 {
 	int	cnt;
 
@@ -32,14 +32,14 @@ static void free_node2(t_cmds *node)
 
 static void	free_node(t_cmds *node)
 {
-	int cnt;
+	int	cnt;
 
 	if (node->cmd)
 	{
 		cnt = 0;
 		while (++cnt && node->cmd[cnt - 1])
-			free(node->cmd[cnt - 1])
-			free(node->cmd)
+			free(node->cmd[cnt - 1]);
+		free(node->cmd);
 	}
 	if (node->in_dir)
 	{
@@ -72,7 +72,7 @@ int	clear_list(t_cmds *node, int ret)
 
 int	append_list(t_cmds **node)
 {
-	t_cmds *buf;
+	t_cmds	*buf;
 
 	while (*node && (*node)->next)
 		*node = (*node)->next;

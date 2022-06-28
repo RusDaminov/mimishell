@@ -15,7 +15,7 @@
 
 # include "minishell.h"
 
-typedef struct	s_builtins
+typedef struct s_builtins
 {
 	char	*name;
 	int		(*func)(char *av);
@@ -23,7 +23,7 @@ typedef struct	s_builtins
 
 int	bt_cd(char **av);
 int	bt_echo(char **av);
-int bt_env(char **av);
+int	bt_env(char **av);
 int	bt_exit(char **av);
 int	bt_export(char **av);
 int	bt_pwd(char **av);

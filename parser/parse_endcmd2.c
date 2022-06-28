@@ -12,7 +12,6 @@
 
 #include "../includes/parser.h"
 
-
 int	parse_or(char **str, char **strbuf, t_cmds **cur)
 {
 	if (*strbuf)

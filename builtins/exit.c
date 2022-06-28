@@ -28,27 +28,27 @@ static void	ft_check_if_int(char **av, int *ret)
 			ft_putstr_fd("exit: ", 2);
 			ft_putstr_fd(av[1], 2);
 			ft_putstr_fd(": numeric argument required\n", 2);
-			break;
+			break ;
 		}
-		c++
+		c++;
 	}
 }
 
 int	bt_exit(char **av)
 {
-	int	ret;
+	int	res;
 
-	ft_check_if_int(av, &ret);
-	if (darr_size(av) > 2 && ret != 255)
+	ft_check_if_int(av, &res);
+	if (darr_size(av) > 2 && res != 255)
 	{
 		ft_putstr_fd("minishell: ", 2);
 		ft_putstr_fd("exit: too many arguments\n", 2);
 		return (1);
 	}
 	clear_history();
-	if (darr_size(av) > 2 && ret != 255)
-		ret = ft_atoi(av[1]);
+	if (darr_size(av) > 2 && res != 255)
+		res = ft_atoi(av[1]);
 	ft_putstr_fd("exit\n", 2);
-	exit(ret);
+	exit(res);
 	return (0);
 }

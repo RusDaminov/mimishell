@@ -50,7 +50,7 @@ static int	parse_leftfile(char **str, t_cmds **cur)
 		if (**str == '\'' || **str == '\"')
 		{
 			(*str)++;
-			continue;
+			continue ;
 		}
 		if (append_char(&(*cur)->in_dir[lst]->path, **str))
 			return (1);
@@ -62,7 +62,8 @@ static int	parse_leftfile(char **str, t_cmds **cur)
 
 int	redirect_size(t_redirect **red)
 {
-	int size;
+	int	size;
+
 	size = 0;
 	while ((red) && (red)[size])
 		size++;
@@ -74,7 +75,7 @@ int	add_redirect(t_redirect ***cur)
 	int			size;
 	t_redirect	**buf;
 
-	buf = (t_redirect **) ft_calloc(redirect_size(*cur) +2,
+	buf = (t_redirect **) ft_calloc(redirect_size(*cur) + 2,
 			sizeof(t_redirect *));
 	if (!buf)
 		return (1);

@@ -14,18 +14,18 @@
 
 static int	check_cmd(t_execute *exec, t_cmds *data, char **str)
 {
-    int res;
+	int	res;
 
-    res = find_command(data->cmd[0], str, g_ourenv.env);
-    if (res == 1)
-        return (execute_child_errors(1, exec, data));
-    collect_garbage(exec);
-    if (res == 2)
-    {
-        clear_list(data, 0);
-        return (127);
-    }
-    return (0);
+	res = find_command(data->cmd[0], str, g_ourenv.env);
+	if (res == 1)
+		return (execute_child_errors(1, exec, data));
+	collect_garbage(exec);
+	if (res == 2)
+	{
+		clear_list(data, 0);
+		return (127);
+	}
+	return (0);
 }
 
 static int	child(t_execute *exec, t_cmds *data)
@@ -105,7 +105,7 @@ unsigned char	execute(t_cmds *data)
 	exec.fd[1] = -1;
 	while (data != 0)
 	{
-		if (data->write == 0 && data->read ==0 && is_builtin(data->cmd[0]))
+		if (data->write == 0 && data->read == 0 && is_builtin(data->cmd[0]))
 			exec.exit = exec_in_main(&exec, data);
 		else if (create_childs(data, &exec))
 			exec.exit = 1;

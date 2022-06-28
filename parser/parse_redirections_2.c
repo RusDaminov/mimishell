@@ -12,7 +12,7 @@
 
 #include "../includes/parser.h"
 
-static int parse_rightheredoc(char **str, t_cmds **cur)
+static int	parse_rightheredoc(char **str, t_cmds **cur)
 {
 	int	lst;
 
@@ -36,7 +36,7 @@ static int parse_rightheredoc(char **str, t_cmds **cur)
 	return (0);
 }
 
-static int parse_rightfile(char **str, t_cmds **cur)
+static int	parse_rightfile(char **str, t_cmds **cur)
 {
 	int	lst;
 
@@ -50,7 +50,7 @@ static int parse_rightfile(char **str, t_cmds **cur)
 		if (**str == '\'' || **str == '\"')
 		{
 			(*str)++;
-			continue;
+			continue ;
 		}
 		if (append_char(&(*cur)->out_dir[lst]->path, **str))
 			return (1);
@@ -60,7 +60,7 @@ static int parse_rightfile(char **str, t_cmds **cur)
 	return (0);
 }
 
-int parse_redirections_2(char **str, t_cmds **cur)
+int	parse_redirections_2(char **str, t_cmds **cur)
 {
 	if (add_redirect(&(*cur)->out_dir))
 		return (1);

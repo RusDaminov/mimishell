@@ -12,8 +12,8 @@
 
 #include "../includes/parser.h"
 
-static int parse_variable2(char **str,
-		char **strbuf, char **var_name, char **variable)
+static int	parse_variable2(char **str,
+						char **strbuf, char **var_name, char **variable)
 {
 	if (!*var_name && *(*str + 1) == "?")
 	{
@@ -40,7 +40,7 @@ static int parse_variable2(char **str,
 	return (0);
 }
 
-static int parse_variable(char **str, char **strbuf)
+static int	parse_variable(char **str, char **strbuf)
 {
 	char	*var_name;
 	char	*variable;
@@ -60,8 +60,7 @@ static int parse_variable(char **str, char **strbuf)
 	return (parse_variable2(str, strbuf, &var_name, &variable));
 }
 
-
-static int parse_dbl(char **str, char **strbuf)
+static int	parse_dbl(char **str, char **strbuf)
 {
 	(*str)++;
 	if (append_char(strbuf, '\0'))
@@ -70,7 +69,7 @@ static int parse_dbl(char **str, char **strbuf)
 	{
 		if (**str == '\0')
 			return (1);
-		else if (**str != '$' && append_char(strbuf, **str) )
+		else if (**str != '$' && append_char(strbuf, **str))
 			return (1);
 		else if (**str == '$' && append_char(strbuf, **str))
 			return (1);
@@ -79,7 +78,7 @@ static int parse_dbl(char **str, char **strbuf)
 	return (0);
 }
 
-static int parse_sngl(char **str, char **strbuf)
+static int	parse_sngl(char **str, char **strbuf)
 {
 	(*str)++;
 	if (append_char(strbuf, '\0'))

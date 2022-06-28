@@ -18,32 +18,32 @@ SOURCES =	main.c																\
 			parser/parse_redirections.c											\
 			parser/parse_redirections_2.c										\
 			parser/parse_endstring.c											\
-			sources/parser/parse_endcommand.c											\
-			sources/parser/parse_asterix.c												\
-			sources/parser/check_input.c												\
-			sources/parser/check_input_2.c												\
-			sources/parser/parse_endcommand_2.c											\
-			sources/utilities/utilities_list.c											\
-			sources/utilities/utilities_list_2.c										\
-			sources/utilities/utilities_string.c										\
-			sources/execute/execute.c													\
-			sources/utilities/utils.c													\
-			sources/execute/cmd_find.c													\
-			sources/signals/signals.c													\
-			sources/builtins/echo.c														\
-			sources/builtins/cd.c														\
-			sources/builtins/env.c														\
-			sources/builtins/exit.c														\
-			sources/builtins/export.c													\
-			sources/builtins/unset.c													\
-			sources/builtins/pwd.c														\
-			sources/builtins/false.c													\
-			sources/builtins/true.c														\
-			sources/execute/execute_utils.c												\
-			sources/execute/execute_utils_2.c											\
-			sources/env/env_utils.c														\
-			sources/execute/redirect.c													\
-			sources/execute/manage_main.c
+			parser/parse_endcommand.c											\
+			parser/parse_asterix.c												\
+			parser/check_input.c												\
+			parser/check_input_2.c												\
+			parser/parse_endcommand_2.c											\
+			utilities/utilities_list.c											\
+			tilities/utilities_list_2.c											\
+			utilities/utilities_string.c										\
+			execute/execute.c													\
+			utilities/utils.c													\
+			execute/cmd_find.c													\
+			signals/signals.c													\
+			builtins/echo.c														\
+			builtins/cd.c														\
+			builtins/env.c														\
+			builtins/exit.c														\
+			builtins/export.c													\
+			builtins/unset.c													\
+			builtins/pwd.c														\
+			builtins/false.c													\
+			builtins/true.c														\
+			execute/execute_utils.c												\
+			execute/execute_utils_2.c											\
+			env/env_utils.c														\
+			execute/redirect.c													\
+			execute/manage_main.c
 #COLORS
 Y = "\033[33m"
 R = "\033[31m"

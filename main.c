@@ -15,7 +15,7 @@
 void	exit_free(t_cmds *cmd, char *str, bool status)
 {
 	static t_cmds	*data;
-	static char 	*s;
+	static char		*s;
 
 	if (status == 0)
 	{

@@ -20,6 +20,6 @@ int	bt_true(char **av)
 
 int	bt_false(char **av)
 {
-    return (1);
-    (void)av;
+	return (1);
+	(void)av;
 }

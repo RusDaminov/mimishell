@@ -12,17 +12,17 @@
 
 #include "../includes/execute.h"
 
-static const	t_builtins g_built_cmd[] = {
-		{"cd", &bt_cd},
-		{"echo", &bt_echo},
-		{"env", &bt_env},
-		{"exit", &bt_exit},
-		{"export", &bt_export},
-		{"pwd", &bt_pwd},
-		{"true", &bt_true},
-		{"false", &bt_false},
-		{"true", &bt_true},
-		{NULL, NULL}
+static const t_builtins	g_built_cmd[] = {
+{"cd", &bt_cd},
+{"echo", &bt_echo},
+{"env", &bt_env},
+{"exit", &bt_exit},
+{"export", &bt_export},
+{"pwd", &bt_pwd},
+{"true", &bt_true},
+{"false", &bt_false},
+{"true", &bt_true},
+{NULL, NULL}
 };
 
 int	is_builtin(char *cmd)
@@ -40,7 +40,7 @@ int	is_builtin(char *cmd)
 	return (0);
 }
 
-static int safe_std(t_execute *exec, t_cmds *cmd)
+static int	safe_std(t_execute *exec, t_cmds *cmd)
 {
 	if (cmd->in_dir)
 	{
@@ -52,7 +52,7 @@ static int safe_std(t_execute *exec, t_cmds *cmd)
 	}
 }
 
-static int reset_to_std(t_execute *exec, t_cmds *cmd)
+static int	reset_to_std(t_execute *exec, t_cmds *cmd)
 {
 	if (cmd->in_dir)
 	{
@@ -66,7 +66,7 @@ static int reset_to_std(t_execute *exec, t_cmds *cmd)
 	}
 	if (cmd->out_dir)
 	{
-	if (dup2(exec->s_out, 1) == -1)
+		if (dup2(exec->s_out, 1) == -1)
 		{
 			close(exec->s_out);
 			return (1);
@@ -75,7 +75,6 @@ static int reset_to_std(t_execute *exec, t_cmds *cmd)
 	}
 	return (0);
 }
-
 
 int	exec_in_main(t_execute *exec, t_cmds *cmd)
 {

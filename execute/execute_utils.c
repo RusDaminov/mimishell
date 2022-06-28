@@ -12,22 +12,22 @@
 
 #include "../includes/execute.h"
 
-static const	t_builtins g_built_cmd[] = {
-		{"cd", &bt_cd},
-		{"echo", &bt_echo},
-		{"env", &bt_env},
-		{"exit", &bt_exit},
-		{"export", &bt_export},
-		{"pwd", &bt_pwd},
-		{"true", &bt_true},
-		{"false", &bt_false},
-		{"true", &bt_true},
-		{NULL, NULL}
+static const t_builtins	g_built_cmd[] = {
+{"cd", &bt_cd},
+{"echo", &bt_echo},
+{"env", &bt_env},
+{"exit", &bt_exit},
+{"export", &bt_export},
+{"pwd", &bt_pwd},
+{"true", &bt_true},
+{"false", &bt_false},
+{"true", &bt_true},
+{NULL, NULL}
 };
 
 int	check_builtin(t_cmds *cmd, t_execute *exec)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (g_built_cmd[1].name)

@@ -12,21 +12,21 @@
 
 #include "../includes/minishell.h"
 
-int bt_env(char **av)
+int	bt_env(char **av)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    if (!g_ourenv.env)
-    {
-        ft_putstr_fd("minishell: env: env is empty\n", 2);
-        return (1);
-    }
-    while (g_ourenv.env[i])
-    {
-        printf("%s\n", g_ourenv.env[i]);
-        i++;
-    }
-    return (0);
-    (void)av;
+	i = 0;
+	if (!g_ourenv.env)
+	{
+		ft_putstr_fd("minishell: env: env is empty\n", 2);
+		return (1);
+	}
+	while (g_ourenv.env[i])
+	{
+		printf("%s\n", g_ourenv.env[i]);
+		i++;
+	}
+	return (0);
+	(void)av;
 }

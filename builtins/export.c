@@ -43,7 +43,7 @@ static int	printexportnovars(void)
 	{
 		buf = ft_strchr(g_ourenv.env[i], '=');
 		printf("declare -x %.*s=\"%s\"\n",
-		   (int)(buf - g_ourenv.env[i]), g_ourenv.env[i], buf + 1);
+			(int)(buf - g_ourenv.env[i]), g_ourenv.env[i], buf + 1);
 		i++;
 	}
 	return (0);
@@ -63,8 +63,8 @@ static int	doexport(char **av)
 			if (!buf)
 				return (1);
 			if (oldenvs(buf))
-				if(append_dstring(&g_ourenv.env, buf))
-					return (1)
+				if (append_dstring(&g_ourenv.env, buf))
+					return (1);
 		}
 		i++;
 	}

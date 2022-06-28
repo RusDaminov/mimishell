@@ -28,7 +28,7 @@ void	check_operators(t_cmds **data, t_execute *exec)
 	}
 }
 
-int		has_heredoc(t_cmds *data)
+int	has_heredoc(t_cmds *data)
 {
 	int	i;
 

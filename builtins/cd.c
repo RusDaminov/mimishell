@@ -78,20 +78,20 @@ int	bt_cd(char **av)
 		if (!get_env_value("HOME"))
 		{
 			ft_putstr_fd("mimishell: cd: HOME not set\n", 2);
-			return (1)
+			return (1);
 		}
 		if (chdir(get_env_value("HOME")) == -1)
 		{
 			ft_putstr_fd("mimishell: cd: ", 2);
 			perror(get_env_value("HOME"));
-			return (1)
+			return (1);
 		}
 	}
 	else if (chdir(*av) == -1)
 	{
 		ft_putstr_fd("mimishell: cd: ", 2);
 		perror(*av);
-		return (1)
+		return (1);
 	}
 	return (update_old_pwd());
 }

@@ -12,7 +12,7 @@
 
 #include "../includes/execute.h"
 
-static int free_path(char **path, int returnvalue)
+static int	free_path(char **path, int returnvalue)
 {
 	int	i;
 
@@ -39,11 +39,11 @@ static int	not_found_404(char *arg, char **path, char **str)
 	return (2);
 }
 
-int find_command(char *arg, char **str, char __attribute__((unused)) **env)
+int	find_command(char *arg, char **str, char __attribute__((unused)) **env)
 {
 	char		*path;
 	int			i;
-	char 		*tmp;
+	char		*tmp;
 	struct stat	buf;
 
 	path = ft_split(get_env_value("PATH"), ':');
