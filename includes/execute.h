@@ -35,7 +35,7 @@ typedef struct	s_pid
 	int 		exit;
 }	t_pid;
 
-int				create_childs(t_cmds *data, t_execute *exec)
+int				create_childs(t_cmds *data, t_execute *exec);
 unsigned char	execute(t_cmds *data);
 
 int				check_builtin(t_cmds *cmd, t_execute *exec);

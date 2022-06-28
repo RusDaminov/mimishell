@@ -12,7 +12,7 @@
 
 #include "../includes/parser.h"
 
-static int parse_variable(char **str,
+static int parse_variable2(char **str,
 		char **strbuf, char **var_name, char **variable)
 {
 	if (!*var_name && *(*str + 1) == "?")
@@ -95,7 +95,7 @@ static int parse_sngl(char **str, char **strbuf)
 	return (0);
 }
 
-int	parse_quotes(char **str, chsr **strbuf)
+int	parse_quotes(char **str, char **strbuf)
 {
 	if (**str == '\'')
 		return (parse_sngl(str, strbuf));
