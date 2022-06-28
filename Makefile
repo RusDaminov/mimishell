@@ -60,19 +60,6 @@ OBJECTS = $(SOURCES:.c=.o)
 
 
 all: $(NAME)
-	echo $(R)
-	echo " ███▄ ▄███▓ ██▓ ███▄    █  ██▓  ██████  ██░ ██ ▓█████  ██▓     ██▓    " | fmt -c $$(tput cols)
-	echo "▓██▒▀█▀ ██▒▓██▒ ██ ▀█   █ ▓██▒▒██    ▒ ▓██░ ██▒▓█   ▀ ▓██▒    ▓██▒    " | fmt -c $$(tput cols)
-	echo "▓██    ▓██░▒██▒▓██  ▀█ ██▒▒██▒░ ▓██▄   ▒██▀▀██░▒███   ▒██░    ▒██░    " | fmt -c $$(tput cols)
-	echo "▒██    ▒██ ░██░▓██▒  ▐▌██▒░██░  ▒   ██▒░▓█ ░██ ▒▓█  ▄ ▒██░    ▒██░    " | fmt -c $$(tput cols)
-	echo "▒██▒   ░██▒░██░▒██░   ▓██░░██░▒██████▒▒░▓█▒░██▓░▒████▒░██████▒░██████▒" | fmt -c $$(tput cols)
-	echo "░ ▒░   ░  ░░▓  ░ ▒░   ▒ ▒ ░▓  ▒ ▒▓▒ ▒ ░ ▒ ░░▒░▒░░ ▒░ ░░ ▒░▓  ░░ ▒░▓  ░" | fmt -c $$(tput cols)
-	echo "░  ░      ░ ▒ ░░ ░░   ░ ▒░ ▒ ░░ ░▒  ░ ░ ▒ ░▒░ ░ ░ ░  ░░ ░ ▒  ░░ ░ ▒  ░" | fmt -c $$(tput cols)
-	echo "░      ░    ▒ ░   ░   ░ ░  ▒ ░░  ░  ░   ░  ░░ ░   ░     ░ ░     ░ ░   " | fmt -c $$(tput cols)
-	echo "       ░    ░           ░  ░        ░   ░  ░  ░   ░  ░    ░  ░    ░  ░" | fmt -c $$(tput cols)
-	echo $(BLACK)
-	echo "                                               by @nschumac & @jsiller" | fmt -c $$(tput cols)
-	echo $(X);
 
 $(NAME): $(LIBFT_NAME) $(OBJECTS)
 	@$(CC) $(OBJECTS) $(CFLAGS) $(LFLAGS) -o $@
@@ -108,5 +95,3 @@ fclean:
 
 re: fclean all
 
-val:
-	docker run --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -ti -v $(PWD):/test memory-test:0.1 bash && cd test
