@@ -48,7 +48,7 @@ t_cmds	*parse(char *str, t_cmds *cur, char *av)
 		else if ()
 			return ((void *)(size_t)clear_list(cur, 0));
 		else if (ft_strchr(ENDCOMMAND, *str) && ++fc
-			&& parse_endcommands(&str, &strbuf, &cur, av))
+			&& parse_endcmds(&str, &strbuf, &cur, av))
 			return ((void *)(size_t)clear_list(cur, 0));
 		else if (parse_2(str, cur, fc, &strbuf))
 			return ((void *)(size_t)clear_list(cur, 0));

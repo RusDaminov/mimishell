@@ -12,7 +12,7 @@
 
 #include "includes/minishell.h"
 
-void	exit_free(t_cmds *cmds, char *str, bool status)
+void	exit_free(t_cmds *cmd, char *str, bool status)
 {
 	static t_cmds	*data;
 	static char 	*s;
@@ -45,7 +45,7 @@ static int	handleinput(char *str, char *av)
 		if (!cmds)
 			return (1);
 		if (find_last(cmds)->cmd == NULL)
-			cmd = delete_node(find_last(cmds));
+			cmds = delete_node(find_last(cmds));
 		cmds = find_listhead(cmds);
 		exit_free(cmds, str, 0);
 		g_ourenv.exit_status = execute(cmds);
@@ -70,7 +70,7 @@ static int	handlearg(char *av[])
 	if (!cmds)
 		return (1);
 	if (find_last(cmds)->cmd == NULL)
-		cmd = delete_node(find_last(cmds));
+		cmds = delete_node(find_last(cmds));
 	cmds = find_listhead(cmds);
 	return (clear_list(cmds, ((int)execute(cmds))));
 }
