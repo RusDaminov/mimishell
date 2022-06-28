@@ -11,8 +11,9 @@
 /* ************************************************************************** */
 
 #include "../includes/parser.h"
+#include "../includes/utils.h"
 
-int	bracket_check2(char **str, char **res, int scope)
+int	bracket_check2(char **str, char **res, int *scope, int *chars)
 {
 	*scope = 1;
 	*chars = 0;
@@ -93,7 +94,7 @@ char	*input_check(char *str, int scope)
 		bruh = 0;
 		if ((*str == '(' && cmd != 2
 			&& ++bruh == 1 && set_incorrect(&str, &res))
-			|| (*str == '(' && ++bruh == 1 && brack_check(&str, &res, scope))
+			|| (*str == '(' && ++bruh == 1 && bracket_check(&str, &res, scope))
 			|| (*str == ')' && scope != 0 && ++bruh == 1))
 			return (res);
 		if (*str == ')' && ++(bruh) == 1)
@@ -101,7 +102,7 @@ char	*input_check(char *str, int scope)
 			append_char(&res, ')');
 			return (res);
 		}
-		if (input_check2(&str, &ret, &cmd, &bruh))
+		if (input_check2(&str, &res, &cmd, &bruh))
 			return (res);
 		if (str)
 			str++;

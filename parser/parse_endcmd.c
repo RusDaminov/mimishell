@@ -86,6 +86,9 @@ static int	parse_brackets(char **str, char **strbuf, t_cmds **cur, char *av)
 	}
 	if ((*cur)->cmd && append_list(cur))
 		return (1);
+	buf = ft_strdup(av);
+	if (!buf)
+		return (1);
 	if (append_dstring(&(*cur)->cmd, buf))
 		return (1);
 	return (parse_brackets2(str, &buf, cur));
