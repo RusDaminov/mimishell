@@ -26,7 +26,7 @@ static int	include_path(char *path, char *key)
 	star = ft_strchr(old, '*');
 	while (star)
 	{
-		*str = '\0';
+		*star = '\0';
 		path = ft_strnstr(path, old, ft_strlen(path));
 		*star = '*';
 		if (!path)

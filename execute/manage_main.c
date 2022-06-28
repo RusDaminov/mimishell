@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/execute.h"
+#include "../includes/minishell.h"
 
 static const t_builtins	g_built_cmd[] = {
 {"cd", &bt_cd},

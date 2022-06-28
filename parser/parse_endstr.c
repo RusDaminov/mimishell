@@ -15,7 +15,7 @@
 static int	parse_variable2(char **str,
 						char **strbuf, char **var_name, char **variable)
 {
-	if (!*var_name && *(*str + 1) == "?")
+	if (!*var_name && *(*str + 1) == '?')
 	{
 		(*str)++;
 		*variable = ft_itoa(g_ourenv.exit_status);

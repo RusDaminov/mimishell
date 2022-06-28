@@ -83,7 +83,7 @@ int	add_redirect(t_redirect ***cur)
 	while (size++ && (*cur) && (*cur)[size - 1])
 		buf[size - 1] = (*cur)[size - 1];
 	buf[size - 1] = (t_redirect *) ft_calloc(1, sizeof(t_redirect));
-	if (!bud[size - 1])
+	if (!buf[size - 1])
 		return (1);
 	if (*cur)
 		free(*cur);

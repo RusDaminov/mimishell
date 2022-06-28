@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/execute.h"
+#include "../includes/minishell.h"
 
 static int	read_from_stdin(t_cmds *data, int fd[2], int i)
 {
@@ -132,7 +132,7 @@ int	redirect(t_cmds *data, t_execute *exec)
 		exec->exit = 1;
 		return (1);
 	}
-	if (in_redirections(data) == 1)
+	if (in_directions(data) == 1)
 	{
 		exec->exit = 1;
 		return (1);

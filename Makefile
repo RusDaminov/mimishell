@@ -17,18 +17,17 @@ SOURCES =	main.c																\
 			parser/parser.c														\
 			parser/parse_redirections.c											\
 			parser/parse_redirections_2.c										\
-			parser/parse_endstring.c											\
-			parser/parse_endcommand.c											\
+			parser/parse_endstr.c												\
+			parser/parse_endcmd.c												\
 			parser/parse_asterix.c												\
-			parser/check_input.c												\
-			parser/check_input_2.c												\
-			parser/parse_endcommand_2.c											\
-			utilities/utilities_list.c											\
-			tilities/utilities_list_2.c											\
-			utilities/utilities_string.c										\
+			parser/input_check.c												\
+			parser/input_check2.c												\
+			parser/parse_endcmd2.c												\
+			utils/list_utils.c													\
+			utils/list_utils2.c													\
+			utils/str_utils.c													\
+			utils/utils.c														\
 			execute/execute.c													\
-			utilities/utils.c													\
-			execute/cmd_find.c													\
 			signals/signals.c													\
 			builtins/echo.c														\
 			builtins/cd.c														\
@@ -37,13 +36,13 @@ SOURCES =	main.c																\
 			builtins/export.c													\
 			builtins/unset.c													\
 			builtins/pwd.c														\
-			builtins/false.c													\
-			builtins/true.c														\
-			execute/execute_utils.c												\
-			execute/execute_utils_2.c											\
-			env/env_utils.c														\
+			builtins/true_false.c												\
 			execute/redirect.c													\
-			execute/manage_main.c
+			execute/manage_main.c												\
+			execute/execute_utils.c												\
+			execute/execute_utils2.c											\
+			execute/cmd_find.c
+
 #COLORS
 Y = "\033[33m"
 R = "\033[31m"

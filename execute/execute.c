@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/execute.h"
+#include "../includes/minishell.h"
 
 static int	check_cmd(t_execute *exec, t_cmds *data, char **str)
 {
@@ -40,8 +40,8 @@ static int	child(t_execute *exec, t_cmds *data)
 		exit (1);
 	if (check_builtin(data, exec) == 0)
 	{
-		collect_garbage(&exec);
-		return (exec.exit);
+		collect_garbage(exec);
+		return (exec->exit);
 	}
 	res = check_cmd(exec, data, &str);
 	if (res != 0)

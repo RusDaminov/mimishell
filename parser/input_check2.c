@@ -39,7 +39,7 @@ int	check_redirections(char **str, char **rem)
 	(*str)++;
 	if (**str == *(*str - 1))
 		(*str)++;
-	while (ft_isspace(**str);
+	while (ft_isspace(**str))
 		(*str)++;
 	if (!**str)
 	{
@@ -74,7 +74,7 @@ int	set_incorrect(char **str, char **rem)
 	(*str)++;
 	while (ft_isspace(**str))
 		(*str)++;
-	if (ft_strchr(ENDCOMMAND, *str))
+	if (ft_strchr(ENDCOMMAND, **str))
 	{
 		append_char(rem, **str);
 		if (ft_strchr(ENDCOMMAND, *(*str + 1)))

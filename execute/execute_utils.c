@@ -10,16 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/execute.h"
+#include "../includes/minishell.h"
 
 static const t_builtins	g_built_cmd[] = {
-{"cd", &bt_cd},
 {"echo", &bt_echo},
+{"cd", &bt_cd},
+{"pwd", &bt_pwd},
+{"export", &bt_export},
+{"unset", &bt_unset},
 {"env", &bt_env},
 {"exit", &bt_exit},
-{"export", &bt_export},
-{"pwd", &bt_pwd},
-{"true", &bt_true},
 {"false", &bt_false},
 {"true", &bt_true},
 {NULL, NULL}
@@ -35,7 +35,7 @@ int	check_builtin(t_cmds *cmd, t_execute *exec)
 		if (!ft_strncmp(cmd->cmd[0], g_built_cmd[i].name,
 				ft_strlen(g_built_cmd[i].name) + 1))
 		{
-			exec->exit = g_built_cmd[i].func[cmd->cmd];
+			exec->exit = g_built_cmd[i].func(cmd->cmd);
 			return (0);
 		}
 		i++;
@@ -50,15 +50,15 @@ void	collect_garbage(t_execute *exec)
 		close(exec->s_fd);
 		exec->s_fd = -1;
 	}
-	if (exec->s_fd[0] != -1)
+	if (exec->fd[0] != -1)
 	{
-		close(exec->s_fd[0]);
-		exec->s_fd[0] = -1;
+		close(exec->fd[0]);
+		exec->fd[0] = -1;
 	}
-	if (exec->s_fd[1] != -1)
+	if (exec->fd[1] != -1)
 	{
-		close(exec->s_fd[1]);
-		exec->s_fd[1] = -1;
+		close(exec->fd[1]);
+		exec->fd[1] = -1;
 	}
 	ft_lstclear(&(exec->lst), free);
 }

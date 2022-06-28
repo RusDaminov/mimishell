@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
-#include "../includes/builtins.h"
 
 static char	oldenvs(char *env)
 {
@@ -24,7 +23,7 @@ static char	oldenvs(char *env)
 	{
 		if (!ft_strncmp(g_ourenv.env[c], env, (chr - env) + 1))
 		{
-			free(g_ourenv.env[c])
+			free(g_ourenv.env[c]);
 			g_ourenv.env[c] = env;
 			return (0);
 		}

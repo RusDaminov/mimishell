@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/execute.h"
+#include "../includes/minishell.h"
 
 void	check_operators(t_cmds **data, t_execute *exec)
 {
@@ -51,7 +51,7 @@ void	my_wait(void *pid, int reset)
 	if (reset == 1)
 		return ;
 	waitpid(((t_pid *)pid)->pid, &((t_pid *)pid)->exit, 0);
-	if (WIFSIGNALED(((t_pid *)pid)->exit) == 3)
+	if (WIFSIGNALED(((t_pid *)pid)->exit))
 	{
 		if (safe == 0)
 		{

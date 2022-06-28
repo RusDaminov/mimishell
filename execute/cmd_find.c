@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/execute.h"
+#include "../includes/minishell.h"
 
 static int	free_path(char **path, int returnvalue)
 {
@@ -41,7 +41,7 @@ static int	not_found_404(char *arg, char **path, char **str)
 
 int	find_command(char *arg, char **str, char __attribute__((unused)) **env)
 {
-	char		*path;
+	char		**path;
 	int			i;
 	char		*tmp;
 	struct stat	buf;

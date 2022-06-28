@@ -22,7 +22,7 @@ static int	parse_space(char **strbuf, t_cmds *cur)
 	return (0);
 }
 
-static int	parse_2(char *str, t_cmds *cur, int fc, char **strbuf)
+static int	parse_2(char **str, t_cmds *cur, int fc, char **strbuf)
 {
 	if (ft_strchr(REDIRECTIONS, **str) && ++fc
 		&& parse_redirecions(str, strbuf, &cur))
@@ -45,12 +45,12 @@ t_cmds	*parse(char *str, t_cmds *cur, char *av)
 		fc = 0;
 		if (ft_strchr(ENDSTRING, *str) && ++fc && parse_quotes(&str, &strbuf))
 			return ((void *)(size_t)clear_list(cur, 0));
-		else if ()
+		else if (*str == ' ' && ++fc && parse_space(&strbuf, cur))
 			return ((void *)(size_t)clear_list(cur, 0));
 		else if (ft_strchr(ENDCOMMAND, *str) && ++fc
 			&& parse_endcmds(&str, &strbuf, &cur, av))
 			return ((void *)(size_t)clear_list(cur, 0));
-		else if (parse_2(str, cur, fc, &strbuf))
+		else if (parse_2(&str, cur, fc, &strbuf))
 			return ((void *)(size_t)clear_list(cur, 0));
 		str++;
 	}

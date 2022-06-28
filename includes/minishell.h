@@ -28,6 +28,7 @@
 # include <readline/history.h>
 # include <termios.h>
 # include <dirent.h>
+# include <sys/wait.h>
 
 # define OPERATORS_NONE 0
 # define OPERATORS_OR 1
@@ -75,7 +76,7 @@ int				bt_env(char **av);
 int				bt_exit(char **av);
 int				bt_export(char **av);
 int				bt_pwd(char **av);
-int				bt_unset(char *av);
+int				bt_unset(char **av);
 int				bt_true(char **av);
 int				bt_false(char **av);
 

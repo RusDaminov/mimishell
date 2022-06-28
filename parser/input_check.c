@@ -63,7 +63,7 @@ char	*input_check2(char **str, char **res, int *cmd, int *bruh)
 		{
 			append_char(res, **str);
 			if (ft_strchr(ENDCOMMAND, *(*str + 1)) && **str != '(')
-				append_char((res, *(*str + 1)));
+				append_char(res, *(*str + 1));
 			return (*res);
 		}
 		if (ft_strchr(ENDCOMMAND, *(*str + 1)) && **str != '(')
@@ -88,7 +88,7 @@ char	*input_check(char *str, int scope)
 	int		bruh;
 
 	res = NULL;
-	cmd + 2;
+	cmd = 2;
 	while (str && *str)
 	{
 		bruh = 0;
